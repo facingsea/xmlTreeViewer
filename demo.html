@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xml process</title>
+    <link rel="stylesheet" href="./xmlTreeViewer.css">
+
+    <script src="xmlTreeViewer.js"></script>
+
+    <script>
+
+        window.onload = function(){
+            var xml = '<?xml version="1.0" encoding="UTF-8"?> ' +
+                        '<!-- Edited with XML Spy v2007 (http://www.altova.com) --> ' +
+                        '<note name="zhangsan"> ' +
+                            '<introduce><![CDATA[This is the content]]></introduce>' +
+                            '<to>George</to> ' +
+                            '<from>John</from> ' +
+                            '<heading>Reminder</heading> ' +
+                            '<body>Don\'t forget the meeting!</body> ' +
+                        '</note>';
+            var xmlNode = xmlTreeViewer.parseXML(xml);
+            console.log(xmlNode);
+
+            var retNode = xmlTreeViewer.getXMLViewerNode(xmlNode.xml);
+            document.getElementById("xml-aaa").appendChild(retNode);
+        };
+
+    </script>
+
+
+</head>
+<body>
+    <div id="xml-aaa"></div>
+</body>
+</html>
